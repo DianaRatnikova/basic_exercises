@@ -16,8 +16,8 @@ def task1(names):
 
 
 def task2(student_names):
-   for name in student_names:
-       print(f'{name}: {len(name)}')
+    for name in student_names:
+        print(f'{name}: {len(name)}')
 
 # Задание 3
 # Необходимо вывести имена всех учеников из списка,
@@ -31,16 +31,14 @@ is_male = {
     'Маша': False,
 }
 
-gender_dict = {
-    'False': "Female",
-    'True': "Male",
-}
 
-# Вопрос: норм ли вариант - вложенный get?
+def return_gender(is_male_get_name):
+    return "Female" if is_male_get_name is False else 'Male'
+
+
 def task3(is_male, names):
-    str_dont_know="don't know"
     for name in names:
-         print(f"{name}: {gender_dict.get(str(is_male.get(name)), str_dont_know)}")
+        print(f"{name}: {return_gender(is_male.get(name))}")
 
 # Задание 4
 # Даны группу учеников. Нужно вывести количество групп
@@ -49,6 +47,7 @@ def task3(is_male, names):
 # Всего 2 группы.
 # Группа 1: 2 ученика.
 # Группа 2: 4 ученика.
+
 
 groups_task4 = [
     ['Вася', 'Маша'],
@@ -61,15 +60,16 @@ def task4(groups):
     print("Всего групп:", len(groups))
     i = 1
     for group in groups:
- #       print("Группа ", i, ": ", len(group), "ученика")
         print(f"Группа {i}: {len(group)} ученика")
         i += 1
 
 # Задание 5
-# Для каждой пары учеников нужно с новой строки перечислить учеников, которые в неё входят
+# Для каждой пары учеников нужно с новой строки
+# перечислить учеников, которые в неё входят
 # Пример вывода:
 # Группа 1: Вася, Маша
 # Группа 2: Оля, Петя, Гриша
+
 
 groups_task5 = [
     ['Вася', 'Маша'],
@@ -79,11 +79,9 @@ groups_task5 = [
 
 
 def task5(groups):
-    print("Всего групп:", len(groups))
-    i = 1
-    for group in groups:
-        print(f"Группа {i}: {', '.join(group)}")
-        i += 1
+    print(f"Всего групп: {len(groups)}")
+    for (i, group) in enumerate(groups):
+        print(f"Группа {i+1}: {', '.join(group)}")
 
 
 print('\nЗадание 1:')
