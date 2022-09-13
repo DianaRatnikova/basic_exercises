@@ -40,10 +40,9 @@ students_task2 = [
 
 
 def show_most_frequent_name(students_dict):
-    count_students_reverse = count_dict_repeats(students_dict).most_common()
+    count_students_reverse = count_dict_repeats(students_dict).most_common(1)
     for name_of_student in count_students_reverse:
-        if name_of_student[1] == count_students_reverse[0][1]:
-            print(name_of_student[0])
+        print(name_of_student[0])
 
 
 print("\n==== Задача 2  =====")
@@ -76,11 +75,9 @@ school_students = [
 
 
 def show_most_frequent_name_in_classes(school_students):
-    number_of_class = 1
-    for students_dict in school_students:
-        print(f"Самое частое имя в классе {number_of_class}:")
-        show_most_frequent_name(students_dict)
-        number_of_class += 1
+    for (number_of_class, school_class) in enumerate(school_students):
+        print(f"Самое частое имя в классе {number_of_class+1}:")
+        show_most_frequent_name(school_class)
 
 
 print("\n==== Задача 3  =====")
