@@ -15,7 +15,7 @@ school = [{'class': '2a',
           {'class': '2б',
            'students': [{'first_name': 'Даша'},
                         {'first_name': 'Олег'},
-                        {'first_name': 'Маша'}]}, ]
+                        {'first_name': 'Маша1'}]}, ]
 is_male = {
     'Олег': True,
     'Маша': False,
@@ -31,20 +31,11 @@ def num_of_boys_and_girls(school):
         num_of_boys = 0
         num_of_gender_neutral = 0
         for first_name in school_class['students']:
-            # Вопрос:
-            # Норм ли, что здесь я:
-            # осознанно не проверяю условие
-            # if first_name['first_name'] in is_male:
-            # (не хочу загромождать код и исхожу из того,
-            # что все имена точно есть в массиве с полом )
-            # а если нет - использую исключения
-            try:
+            if first_name['first_name'] in is_male:
                 if is_male[first_name['first_name']]:
                     num_of_boys += 1
                 else:
                     num_of_girls += 1
-            except KeyError:
-                num_of_gender_neutral += 1
         print(f"Класс {school_class['class']}: девочки {num_of_girls}",
               f"мальчики {num_of_boys}, не определено {num_of_gender_neutral}")
 
