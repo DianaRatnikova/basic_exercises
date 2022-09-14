@@ -19,10 +19,10 @@ def task2(student_names):
     for name in student_names:
         print(f'{name}: {len(name)}')
 
+
 # Задание 3
 # Необходимо вывести имена всех учеников из списка,
 # рядом с именем вывести пол ученика
-
 
 is_male = {
     'Оля': False,  # если False, то пол женский
@@ -32,13 +32,13 @@ is_male = {
 }
 
 
-def return_gender(is_male_get_name):
-    return "Female" if is_male_get_name is False else 'Male'
+def show_gender(is_male_get_name):
+    return "Male" if is_male_get_name else "Female"
 
 
 def task3(is_male, names):
     for name in names:
-        print(f"{name}: {return_gender(is_male.get(name))}")
+        print(f"{name}: {show_gender(is_male.get(name))}")
 
 # Задание 4
 # Даны группу учеников. Нужно вывести количество групп
@@ -58,10 +58,8 @@ groups_task4 = [
 
 def task4(groups):
     print("Всего групп:", len(groups))
-    i = 1
-    for group in groups:
-        print(f"Группа {i}: {len(group)} ученика")
-        i += 1
+    for (group_index, group) in enumerate(groups):
+        print(f"Группа {group_index+1}: {len(group)} ученика")
 
 # Задание 5
 # Для каждой пары учеников нужно с новой строки
@@ -79,9 +77,9 @@ groups_task5 = [
 
 
 def task5(groups):
-    print(f"Всего групп: {len(groups)}")
-    for (i, group) in enumerate(groups):
-        print(f"Группа {i+1}: {', '.join(group)}")
+    print("Всего групп:", len(groups))
+    for (group_index, group) in enumerate(groups):
+        print(f"Группа {group_index+1}: {', '.join(group)}")
 
 
 print('\nЗадание 1:')
