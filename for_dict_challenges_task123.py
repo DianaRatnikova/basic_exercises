@@ -2,6 +2,14 @@
 
 from collections import Counter
 
+# Задание 1
+# Дан список учеников, нужно посчитать количество
+# повторений каждого имени ученика
+# Пример вывода:
+# Вася: 1
+# Маша: 2
+# Петя: 2
+
 students_task1 = [
     {'first_name': 'Вася'},
     {'first_name': 'Петя'},
@@ -10,17 +18,17 @@ students_task1 = [
     {'first_name': 'Петя'}, ]
 
 
-def count_dict_repeats(students_dict):
-    count_students = Counter()
-    for name_of_student in students_dict:
-        count_students[name_of_student['first_name']] += 1
-    return count_students
-
-
 def count_student_repeats(students_dict):
-    count_students = count_dict_repeats(students_dict)
-    for name_of_student in count_students:
-        print(name_of_student, " ", count_students[name_of_student])
+    count_students = [name_of_student['first_name'] for name_of_student in students_dict]
+    for key_name, value_name in Counter(count_students).items():
+        print(f"{key_name}: {value_name}")
+
+
+def count_dict_repeats(students_dict):
+    count_students0 = Counter()
+    for name_of_student in students_dict:
+        count_students0[name_of_student['first_name']] += 1
+    return count_students0
 
 
 print("\n==== Задача 1  =====")
@@ -39,10 +47,11 @@ students_task2 = [
     {'first_name': 'Оля'}, ]
 
 
-def show_most_frequent_name(students_dict):
-    count_students_reverse = count_dict_repeats(students_dict).most_common(1)
-    for name_of_student in count_students_reverse:
-        print(name_of_student[0])
+def show_most_frequent_name(students_dict1):
+    count_students1 = [name_of_student['first_name'] for name_of_student in students_dict1]
+    most_frequent_name = Counter(count_students1).most_common(1)
+    for key_name, value_name in most_frequent_name:
+        print(f"{key_name}")
 
 
 print("\n==== Задача 2  =====")
