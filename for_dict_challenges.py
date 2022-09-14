@@ -29,15 +29,13 @@ def num_of_boys_and_girls(school):
     for school_class in school:
         num_of_girls = 0
         num_of_boys = 0
-        num_of_gender_neutral = 0
         for first_name in school_class['students']:
-            if first_name['first_name'] in is_male:
-                if is_male[first_name['first_name']]:
-                    num_of_boys += 1
-                else:
-                    num_of_girls += 1
+            if first_name['first_name'] in is_male and is_male[first_name['first_name']]:
+                num_of_boys += 1
+            elif first_name['first_name'] in is_male and not is_male[first_name['first_name']]:
+                num_of_girls += 1
         print(f"Класс {school_class['class']}: девочки {num_of_girls}",
-              f"мальчики {num_of_boys}, не определено {num_of_gender_neutral}")
+              f"мальчики {num_of_boys}")
 
 
 print("\n==== Задача 4  =====")
@@ -66,12 +64,10 @@ is_male = {
 
 
 def find_max_num_of_girls_and_boys(max_num_of, num_of):
-    if num_of > max_num_of:
-        max_num_of = num_of
-    return max_num_of
+    return num_of if num_of > max_num_of else max_num_of
 
 
-def max_num_of_boys_and_girls(school):
+def show_max_num_of_boys_and_girls(school):
     max_num_of_girls = 0
     max_num_of_boys = 0
     for school_class in school:
@@ -98,4 +94,4 @@ def max_num_of_boys_and_girls(school):
 
 
 print("\n==== Задача 5  =====")
-max_num_of_boys_and_girls(school)
+show_max_num_of_boys_and_girls(school)
