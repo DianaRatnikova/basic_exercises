@@ -18,17 +18,18 @@ students_task1 = [
     {'first_name': 'Петя'}, ]
 
 
-def count_student_repeats(students_dict):
-    count_students = [name_of_student['first_name'] for name_of_student in students_dict]
+def count_student_repeats(list_of_names):
+    count_students = [name_of_student['first_name']
+                      for name_of_student in list_of_names]
     for key_name, value_name in Counter(count_students).items():
         print(f"{key_name}: {value_name}")
 
 
-def count_dict_repeats(students_dict):
-    count_students0 = Counter()
-    for name_of_student in students_dict:
-        count_students0[name_of_student['first_name']] += 1
-    return count_students0
+def count_dict_repeats(list_of_names):
+    repeats_in_list_of_names = Counter()
+    for name_of_student in list_of_names:
+        repeats_in_list_of_names[name_of_student['first_name']] += 1
+    return repeats_in_list_of_names
 
 
 print("\n==== Задача 1  =====")
@@ -47,9 +48,10 @@ students_task2 = [
     {'first_name': 'Оля'}, ]
 
 
-def show_most_frequent_name(students_dict1):
-    count_students1 = [name_of_student['first_name'] for name_of_student in students_dict1]
-    most_frequent_name = Counter(count_students1).most_common(1)
+def show_most_frequent_name(list_of_names):
+    repeats_in_list_of_names = [name_of_student['first_name']
+                                for name_of_student in list_of_names]
+    most_frequent_name = Counter(repeats_in_list_of_names).most_common(1)
     for key_name, value_name in most_frequent_name:
         print(f"{key_name}")
 
