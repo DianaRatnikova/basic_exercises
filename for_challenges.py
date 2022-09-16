@@ -58,7 +58,7 @@ groups_task4 = [
 
 def task4(groups):
     print("Всего групп:", len(groups))
-    for (group_index, group) in enumerate(groups):
+    for group_index, group in enumerate(groups):
         print(f"Группа {group_index+1}: {len(group)} ученика")
 
 # Задание 5
