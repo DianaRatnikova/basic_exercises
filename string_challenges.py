@@ -18,10 +18,14 @@ word = 'Архангельск'
 
 list_of_vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'э', 'ю', 'я']
 
-num_of_vowels = 0
-for vowel_letter in list_of_vowels:
-    num_of_vowels += count_letters(vowel_letter, word)
-print(f"Число гласных: {num_of_vowels}")
+
+def count_vowels(word_to_count):
+    return sum([1 for letter in word_to_count.lower()
+                if letter in list_of_vowels])
+
+
+print(f"Число гласных: {count_vowels(word)}")
+
 
 # Вывести количество слов в предложении
 sentence = 'Мы приехали в гости'
